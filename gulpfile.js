@@ -50,6 +50,12 @@ gulp.task('lib', function(){
 	.pipe(rename({suffix:'.min'}))
 	.pipe(gulp.dest('../dist/js/lib'))
 });
+gulp.task('tuto', function(){
+	return gulp.src('js/tuto/*.js')
+	.pipe(uglify())
+	.pipe(rename({suffix:'.min'}))
+	.pipe(gulp.dest('../dist/js/tuto'))
+});
 gulp.task('three', function(){
 	return gulp.src('bower_components/**/build/*.min.js')
 	.pipe(gulp.dest('../dist/js/lib'))
@@ -65,6 +71,7 @@ gulp.task('watch',function(){
     gulp.watch('*.html',['index']);
     gulp.watch('js/*.js',['js']);
     gulp.watch('js/lib/*.js',['lib']);
+    gulp.watch('js/tuto/*.js',['tuto']);
     gulp.watch('js/class/*.js',['class']);
     gulp.watch('css/**/*.*',['css']);
 });
@@ -75,6 +82,7 @@ gulp.task('export',function(){
     gulp.watch('*.*',['index']);
     gulp.watch('*.*',['js']);
     gulp.watch('*.*',['lib']);
+    gulp.watch('*.*',['tuto']);
     gulp.watch('*.*',['three']);
     gulp.watch('*.*',['class']);
     gulp.watch('*.*',['css']);

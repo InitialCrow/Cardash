@@ -3,6 +3,7 @@
 	var speed = 0;
 	var gameEngine = {
 		lvl:  1,
+		timer:0,
 		initGameEngine : function(){
 			if (localStorage.length>0){
 				this.chrono.timerTbl += localStorage.getItem("Time");
@@ -21,6 +22,7 @@
 			if(this.lvl === 1 ){
 				app.map.patern1.init();
 			}
+			this.feedbacks.init();
 			
 		},
 		
@@ -69,7 +71,6 @@
 				document.getElementById("timer").innerHTML = this.timer;
 			}
 		},
-	
 		keyboard: {
 			speed:{},
 			jump: false,
@@ -207,7 +208,6 @@
 			}
 		},
 		switchPatern : function(){
-		
 			if(this.lvl === 2 ){
 				
 				app.map.patern1.destroy();
@@ -215,8 +215,25 @@
 				self.finish();
 				this.lvl=-1;
 				
-			}
-			
+			}	
+		},
+
+		feedbacks : {
+			init : function(){
+				this.feedbacks = document.createElement("div");
+				this.feedbacks.setAttribute('id',"feedbacks")
+				this.feedbacks.style.opacity = "0";
+				this.feedbacks.style.position = 'absolute';
+				this.feedbacks.style.width = window.innerWidth/2+"px";
+				this.feedbacks.style.height =  window.innerHeight/15 +"px";
+				this.feedbacks.style.top =  0+ 'px';
+				this.feedbacks.style.left = 25 + '%';
+				document.body.appendChild(this.feedbacks);
+			},
+			help : function(msg){
+				this.feedbacks.style.opacity ="1";
+				this.feedbacks.innerHTML = "<p class='help'>"+msg+"</p>";
+			},
 			
 		},
 		//gameloop
@@ -230,10 +247,59 @@
 			app.player.respawn();
 
 			if(self.lvl ===1){
-				app.player.fly(-660);
-				app.map.patern1.move(app.map.patern1.road9)
 				self.win.lvl1();
-			}			
+			}
+
+
+			self.timer ++;
+			if (app.map.patern1.road1.mesh !=undefined){
+				initPos(app.map.patern1.road1.mesh, app.map.patern1.road1.body);
+
+			}
+
+
+			if ( self.timer <500){
+				this.feedbacks.help("Hi you want to be The Pilot ... ok no Problem you are here to learn");
+			}
+			if( self.timer>500 &&self.timer <=2000){
+				self.timer = 1800;
+				this.feedbacks.help("First you can press Z,Q,S,D for move...");
+				if (this.keyboard.left === true || this.keyboard.right === true || this.keyboard.forward === true || this.keyboard.back === true){
+						self.timer = 2002;
+				}
+				
+				
+					
+				
+			}
+			if (self.timer >2001 && self.timer <=2400){
+				self.timer = 2300;
+				this.feedbacks.help("Nice!!!! you well done now do a jump with your car what?? here we are in the game the developper is drunking... press SPACE for jump...");
+				if (this.keyboard.jump === true){
+						self.timer = 2401;
+				}
+				
+			}
+			if (self.timer >2400 && self.timer <=3200){
+				this.feedbacks.help("look on the right there are your song player you could change track soon... after you have you timer you need to ending race to validate this timer after go in menu for look yours scores ....");	
+			}
+			if (self.timer >3200 && self.timer <=3500){
+				self.timer = 3400;
+				this.feedbacks.help("if you fall during the race you will recive a penality... do your first fall for test dont worry you can't die this is a game ...");
+				if (app.player.mesh.position.y<-199){
+						self.timer = 3501;
+				}	
+			}
+			if (self.timer >3500 && self.timer <=3800){
+				self.timer = 3700;
+				this.feedbacks.help("Nice you are ready for the race... go at the end of this road for finnish  this tutorial ");
+				if(app.player.mesh.position.z < -395){
+
+					document.location = "app.html";
+				}
+			}
+			
+			
 		},
 		
 		

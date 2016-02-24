@@ -49,21 +49,6 @@
 			}
 			
 		},
-		fly : function(pos){
-			
-			if( this.mesh.position.z < pos && this.mesh.position.z > pos-50  && this.jumpReady === true){
-				
-				this.flying = true;
-			}
-			if (this.flying && this.mesh.position.y < 8){
-				this.body.velocity.y+=5.4;
-				this.jumpReady = false;
-				setTimeout(function(){
-					self.flying = false;
-				},1500)
-			}
-
-		},
 		respawn : function(){
 			if ( this.mesh.position.y < -200 ){
 				this.mesh.position.set(0,5,100 );

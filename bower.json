@@ -1,8 +1,8 @@
 {
   "name": "Cardash",
-  "authors": [
+  "authors": 
     "'Adam' <'parent.adam@free.fr'>",
-  ],
+  
   "description": "car game with threejs",
   "main": "",
   "moduleType": [],
