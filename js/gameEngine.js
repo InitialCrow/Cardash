@@ -17,9 +17,10 @@
 		},
 		init : function(){
 
-			this.chrono.init();
+			
 			if(this.lvl === 1 ){
 				app.map.patern1.init();
+				
 			}
 			
 		},
@@ -135,7 +136,7 @@
 
 					if(speed < 0 ){
 						
-												speed++;
+						speed++;
 						app.player.mesh.position.z += Math.sin(app.player.mesh.rotation.y + Math.PI/2)*speed/app.player.speedAcceleration;
 						app.player.mesh.position.x -= Math.cos(app.player.mesh.rotation.y + Math.PI/2)*speed/app.player.speedAcceleration;
 					}
@@ -162,11 +163,11 @@
 					
 				}
 			
-				if ( this.left === true){
-					app.player.mesh.rotation.y +=speed/app.player.angle;
+				if ( (this.left === true && speed >0)  || (this.left === true && speed <0)){
+					app.player.mesh.rotation.y +=150/app.player.angle;
 				}
-				if ( this.right === true){
-					app.player.mesh.rotation.y -=speed/app.player.angle;
+				if ( (this.right === true && speed >0) || (this.right === true && speed <0)){
+					app.player.mesh.rotation.y -=150/app.player.angle;
 				}
 
 				if ( speed >=app.player.speedMax ){
@@ -196,6 +197,14 @@
 						}, 500)
 						
 				}
+
+
+				//collide deceleration
+				for(var i=0; i<app.map.patern1.obst1Tbl.length; i++){
+					if(self.collider(app.player.body, app.map.patern1.obst1Tbl[i].body)){
+						speed -= 7
+					};
+				}
 			}
 			
 		},
@@ -219,6 +228,17 @@
 			
 			
 		},
+		collider : function(bodyA, bodyB){
+			
+			for(var i=0; i<app.physic.world.contacts.length; i++){
+				var c = app.physic.world.contacts[i];
+				if((c.bi === bodyA && c.bj === bodyB) || (c.bi === bodyB && c.bj === bodyA)){
+					consol(app,  ' COLLIDE :: DETECT ' + bodyA + 'AND' + bodyB );
+					return true;
+				}
+			}
+			    
+		},
 		//gameloop
 
 		animate : function(){
@@ -233,6 +253,7 @@
 				app.player.fly(-660);
 				app.map.patern1.move(app.map.patern1.road9)
 				self.win.lvl1();
+				
 			}			
 		},
 		

@@ -23,7 +23,7 @@ Obst.prototype.init = function(scene, world) {
      			image.wrapS = THREE.RepeatWrapping;
      			image.wrapT = THREE.RepeatWrapping;
      			// image.repeat.set( 1, 25 );
- 			self.shape = new CANNON.Box(new CANNON.Vec3(self.w/2,self.h/2, self.d/2));
+ 			self.shape = new CANNON.Box(new CANNON.Vec3(self.w/2.1,self.h/2.1, self.d/2.1));
 			self.body = new CANNON.Body({ mass: 0, type : CANNON.Body.KINEMATIC  });
 
 			self.body.addShape(self.shape);

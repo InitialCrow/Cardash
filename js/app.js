@@ -1,7 +1,7 @@
 //app.js
 (function(ctx){
 	var app = {
-		config : { debug : false},
+		config : { debug : true},
 		init : function(){
 			this.webgl.initWebgl();
 			this.physic.initPhysic();

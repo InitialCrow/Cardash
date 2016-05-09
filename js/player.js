@@ -5,9 +5,9 @@
 			consol(app, "player :: ok");
 		},
 		assets: "../models/nismo.json",
-		engineSlow : 200,
-		speedAcceleration : 200,
-		break : 2,
+		engineSlow : 300,
+		speedAcceleration : 300,
+		break : 3,
 		angle : 5000,
 		speedMax:200,
 		moving : false,
@@ -68,7 +68,8 @@
 			if ( this.mesh.position.y < -200 ){
 				this.mesh.position.set(0,5,100 );
 			}
-		}
+		},
+	
 		
 	}
 	ctx.player = player;
