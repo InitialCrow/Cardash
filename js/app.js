@@ -13,8 +13,9 @@
 		},
 		start : function(){
 			consol(this, "============== app :: started =================");
-
-			this.update();
+			
+				self.update();
+			
 		},
 		update : function(){
 			self.req = requestAnimationFrame(self.update);
@@ -24,6 +25,7 @@
 				self.webgl.stats.begin();
 				self.physic.world.step(1/60);
 				if(self.player.mesh != undefined){
+
 					self.gameEngine.animate();
 				}
 				self.webgl.stats.end();

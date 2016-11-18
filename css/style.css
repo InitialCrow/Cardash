@@ -12,6 +12,16 @@
 	right:20px;
 	
 }
+#starter{
+	position: absolute;
+	font-size: 80px;
+	top: 8%;
+	left: 45%;
+	color: white;
+	font-family: sans-serif;
+	font-weight: bold;
+
+}
 .help{
 	/*visibility: hidden;*/
 	text-align: center;

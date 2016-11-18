@@ -77,60 +77,60 @@
 				this.road12.init(app.webgl.scene, app.physic.world);
 
 				//1st road
-				for(var i =0; i<55; i++){
-					var inter = -50 + i*20;
-					if(i<6){
+				// for(var i =0; i<55; i++){
+				// 	var inter = -50 + i*20;
+				// 	if(i<6){
 						
-						var x_alea =  getRandomInt(-10,10)
-						this.obst1Tbl[i] = new Obst(10,10,5  ,x_alea,3,-inter, 0,0,0,"../assets/obstacle/obst.jpg");
+				// 		var x_alea =  getRandomInt(-10,10)
+				// 		this.obst1Tbl[i] = new Obst(10,40,5  ,x_alea,3,-inter, 0,0,0,"../assets/obstacle/obst.jpg");
 						
-						this.obst1Tbl[i].init(app.webgl.scene, app.physic.world);
-					}
-					if(i===6){
-						this.obst1Tbl[i] = new Obst(20,5,5  ,0,-100,-inter-200, 0,0,0,"../assets/obstacle/obst.jpg");
+				// 		this.obst1Tbl[i].init(app.webgl.scene, app.physic.world);
+				// 	}
+				// 	if(i===6){
+				// 		this.obst1Tbl[i] = new Obst(20,5,5  ,0,-100,-inter-200, 0,0,0,"../assets/obstacle/obst.jpg");
 						
-						this.obst1Tbl[i].init(app.webgl.scene, app.physic.world);
-					}
-					if(i>6 && i<21){
-						var x_alea =  getRandomInt(-10,10)
-						this.obst1Tbl[i] = new Obst(10,10,5  ,inter,-97,x_alea- 445, 0,1.5,0,"../assets/obstacle/obst.jpg",'Y');
+				// 		this.obst1Tbl[i].init(app.webgl.scene, app.physic.world);
+				// 	}
+				// 	if(i>6 && i<21){
+				// 		var x_alea =  getRandomInt(-10,10)
+				// 		this.obst1Tbl[i] = new Obst(10,40,5  ,inter,-97,x_alea- 445, 0,1.5,0,"../assets/obstacle/obst.jpg",'Y');
 						
-						this.obst1Tbl[i].init(app.webgl.scene, app.physic.world);
-					}
-					if(i===21){
-						this.obst1Tbl[i] = new Obst(20,5,5  ,350,-100,-inter-120, 0,0,0,"../assets/obstacle/obst.jpg");
+				// 		this.obst1Tbl[i].init(app.webgl.scene, app.physic.world);
+				// 	}
+				// 	if(i===21){
+				// 		this.obst1Tbl[i] = new Obst(20,5,5  ,350,-100,-inter-120, 0,0,0,"../assets/obstacle/obst.jpg");
 						
-						this.obst1Tbl[i].init(app.webgl.scene, app.physic.world);
-					}
-					if(i>21 && i<30){
-						var x_alea =  getRandomInt(-10,10)
-						this.obst1Tbl[i] = new Obst(10,10,5  ,x_alea+350,0,-inter-400, 0,0,0,"../assets/obstacle/obst.jpg");
+				// 		this.obst1Tbl[i].init(app.webgl.scene, app.physic.world);
+				// 	}
+				// 	if(i>21 && i<30){
+				// 		var x_alea =  getRandomInt(-10,10)
+				// 		this.obst1Tbl[i] = new Obst(10,40,5  ,x_alea+350,0,-inter-400, 0,0,0,"../assets/obstacle/obst.jpg");
 						
-						this.obst1Tbl[i].init(app.webgl.scene, app.physic.world);
-						
-
-					}
-					if(i===30){
-						this.obst1Tbl[i] = new Obst(20,5,5  ,350,0,-inter-450, 0,0,0,"../assets/obstacle/obst.jpg");
-						
-						this.obst1Tbl[i].init(app.webgl.scene, app.physic.world);
-					}
-					if(i>30 && i<45){
-						var x_alea =  getRandomInt(-10,10)
-						this.obst1Tbl[i] = new Obst(10,10,5  ,inter-500,3,x_alea-1300, 0,1.5,0,"../assets/obstacle/obst.jpg",'Y');
-						
-						this.obst1Tbl[i].init(app.webgl.scene, app.physic.world);
+				// 		this.obst1Tbl[i].init(app.webgl.scene, app.physic.world);
 						
 
-					}
-					if(i>=45 && i<55){
-						var x_alea =  getRandomInt(-10,10)
-						this.obst1Tbl[i] = new Obst(10,10,5  ,x_alea-80,-97,-inter-500, 0,0,0,"../assets/obstacle/obst.jpg");
+				// 	}
+				// 	if(i===30){
+				// 		this.obst1Tbl[i] = new Obst(20,5,5  ,350,0,-inter-450, 0,0,0,"../assets/obstacle/obst.jpg");
 						
-						this.obst1Tbl[i].init(app.webgl.scene, app.physic.world);
-					}
+				// 		this.obst1Tbl[i].init(app.webgl.scene, app.physic.world);
+				// 	}
+				// 	if(i>30 && i<45){
+				// 		var x_alea =  getRandomInt(-10,10)
+				// 		this.obst1Tbl[i] = new Obst(10,40,5  ,inter-500,3,x_alea-1300, 0,1.5,0,"../assets/obstacle/obst.jpg",'Y');
+						
+				// 		this.obst1Tbl[i].init(app.webgl.scene, app.physic.world);
+						
+
+				// 	}
+				// 	if(i>=45 && i<55){
+				// 		var x_alea =  getRandomInt(-10,10)
+				// 		this.obst1Tbl[i] = new Obst(10,40,5  ,x_alea-80,-97,-inter-500, 0,0,0,"../assets/obstacle/obst.jpg");
+						
+				// 		this.obst1Tbl[i].init(app.webgl.scene, app.physic.world);
+				// 	}
 					
-				}
+				// }
 					
 			
 				

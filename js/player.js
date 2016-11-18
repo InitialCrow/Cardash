@@ -10,6 +10,7 @@
 		break : 3,
 		angle : 5000,
 		speedMax:200,
+		boost : 800,
 		moving : false,
 		loadCar : function(){
 
@@ -56,7 +57,7 @@
 				this.flying = true;
 			}
 			if (this.flying && this.mesh.position.y < 8){
-				this.body.velocity.y+=5.4;
+				this.body.velocity.y+=4.4;
 				this.jumpReady = false;
 				setTimeout(function(){
 					self.flying = false;
@@ -66,7 +67,8 @@
 		},
 		respawn : function(){
 			if ( this.mesh.position.y < -200 ){
-				this.mesh.position.set(0,5,100 );
+				this.mesh.position.set(0,20,100 );
+				app.gameEngine.speed = 0;
 			}
 		},
 	
