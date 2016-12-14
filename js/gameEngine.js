@@ -155,22 +155,22 @@
 			},
 			control : function(){
 		
-				this.sound_forward = document.getElementById('audio');
-				this.sound_break = document.getElementById('audio2');
-				this.sound_stoped = document.getElementById('audio3');
+				var sound_forward = document.getElementById('audio');
+				var sound_break = document.getElementById('audio2');
+				var sound_stoped = document.getElementById('audio3');
 				
 				if (this.forward === true){
-					this.sound_forward.play();
-					this.sound_break.pause();
-					this.sound_stoped.pause();
+					sound_forward.play();
+					sound_break.pause();
+					sound_stoped.pause();
 					self.speed++;
 					app.player.mesh.position.z += Math.sin(app.player.mesh.rotation.y + Math.PI/2)*self.speed/app.player.speedAcceleration;
 					app.player.mesh.position.x -= Math.cos(app.player.mesh.rotation.y + Math.PI/2)*self.speed/app.player.speedAcceleration;				
 				}
 				else if(this.forward === false &&  this.back === false){
-					this.sound_forward.pause();
-					this.sound_forward.currentTime=0;
-					this.sound_stoped.play();
+					sound_forward.pause();
+
+					sound_stoped.play();
 
 					if(self.speed > 0 ){
 
@@ -188,10 +188,10 @@
 					
 				}
 				if ( this.back === true && self.speed>0){
-					this.sound_break.play();
-					this.sound_forward.pause();
-					this.sound_stoped.pause();
-					this.sound_forward.currentTime=0;
+					sound_break.play();
+					sound_forward.pause();
+					sound_stoped.pause();
+					
 
 					self.speed -= app.player.break;
 					app.player.mesh.position.z += Math.sin(app.player.mesh.rotation.y + Math.PI/2)*self.speed/app.player.speedAcceleration
@@ -201,7 +201,7 @@
 
 				}
 				if ( this.back === true && self.speed <=0){
-					this.sound_break.pause();
+					sound_break.pause();
 					self.speed--;
 					app.player.mesh.position.z += Math.sin(app.player.mesh.rotation.y + Math.PI/2)*self.speed/app.player.speedAcceleration;
 					app.player.mesh.position.x -= Math.cos(app.player.mesh.rotation.y + Math.PI/2)*self.speed/app.player.speedAcceleration;

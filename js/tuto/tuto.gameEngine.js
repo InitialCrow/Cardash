@@ -124,7 +124,7 @@
 				}
 				else if(this.forward === false &&  this.back === false){
 					this.sound_forward.pause();
-					this.sound_forward.currentTime=0;
+					
 					this.sound_stoped.play();
 
 					if(speed > 0 ){
@@ -146,7 +146,7 @@
 					this.sound_break.play();
 					this.sound_forward.pause();
 					this.sound_stoped.pause();
-					this.sound_forward.currentTime=0;
+					
 
 					speed -= app.player.break;
 					app.player.mesh.position.z += Math.sin(app.player.mesh.rotation.y + Math.PI/2)*speed/app.player.speedAcceleration
